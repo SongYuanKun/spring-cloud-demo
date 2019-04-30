@@ -21,5 +21,5 @@ spring:
       database: 0
       host: 60.205.221.172
       port: 7000
-      pasword: 123456
+      password: 123456
     mode: HTML5
