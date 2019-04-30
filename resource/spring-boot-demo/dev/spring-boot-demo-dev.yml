@@ -17,4 +17,9 @@ spring:
     encoding: UTF-8
     servlet:
       content-type: text/html
+    redis:
+      database: 0
+      host: 60.205.221.172
+      port: 7000
+      pasword: 123456
     mode: HTML5
