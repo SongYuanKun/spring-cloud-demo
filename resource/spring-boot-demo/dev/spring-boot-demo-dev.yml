@@ -3,7 +3,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://songyuankun:songyuankun@demo-6zzom.mongodb.net/demo?retryWrites=true
+      uri: mongodb+srv://songyuankun:songyuankun@cluster0-xrqrk.mongodb.net/demo?retryWrites=true
   datasource:
     url: jdbc:mysql://60.205.221.172/mysqltest?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
