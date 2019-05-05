@@ -10,7 +10,14 @@ spring:
         git:
           uri: https://github.com/SongYuanKun/spring-cloud-demo
           search-paths: /*/*/*,/*
+  rabbitmq:
+    host: 60.205.221.172
+    port: 5672
+    username: songyuankun
+    password: songyuankun
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka-server/eureka/
+#      defaultZone: http://127.0.0.1:8761/eureka-server/eureka/
+      defaultZone: http://spring-cloud.songyuankun.top/eureka-server/eureka/
