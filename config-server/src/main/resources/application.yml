@@ -1,6 +1,7 @@
 server:
   port: 8001
-
+  servlet:
+    context-path: /
 spring:
   application:
     name: config-server
@@ -11,15 +12,16 @@ spring:
           uri: https://github.com/SongYuanKun/spring-cloud-demo
           search-paths: /*/*/*,/*
   rabbitmq:
-    host: 60.205.221.172
+    host: 127.0.0.1
     port: 5672
     username: songyuankun
     password: songyuankun
+    virtual-host: config
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka-server/eureka/
+      defaultZone: http://eureka1.songyuankun.top/eureka/,http://eureka2.songyuankun.top/eureka/
 management:
   endpoints:
     web:
