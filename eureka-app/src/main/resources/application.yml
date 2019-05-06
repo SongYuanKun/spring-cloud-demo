@@ -1,11 +1,11 @@
 server:
-  port: 8762
+  port: 9000
 
 spring:
   application:
-    name: service-hi
+    name: ribbon-consumer
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka-server/eureka/
+      defaultZone: http://eureka1.songyuankun.top/eureka/,http://eureka2.songyuankun.top/eureka/
