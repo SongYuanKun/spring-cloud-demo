@@ -1,0 +1,15 @@
+server:
+  port: 8761
+  servlet:
+    context-path: /
+eureka:
+  instance:
+    hostname: eureka1.songyuankun.top
+  client:
+    serviceUrl:
+      defaultZone: http://eureka2.songyuankun.top/eureka/
+
+spring:
+  application:
+    name: eurka-server
+
