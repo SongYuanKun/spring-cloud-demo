@@ -1,5 +1,0 @@
-from: default-environment-1.0zuul:
-        routes:
-          service-provider:
-            path: /service/**
-            serviceId: eureka-service
