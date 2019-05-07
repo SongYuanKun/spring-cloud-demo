@@ -18,6 +18,6 @@ public class ConsumerController {
 
     @RequestMapping(value = "/ribbon-consumer", method = RequestMethod.GET)
     public String helloController() {
-        return restTemplate.getForEntity("http://CONFIG-SERVER/api/from", String.class).getBody();
+        return restTemplate.getForEntity("http://EUREKA-PROVIDER/", String.class).getBody();
     }
 }
