@@ -1,9 +1,7 @@
-package com.songyuankun.cloud.provider.form;
-
+package com.songyuankun.cloud.provider.query;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,8 +15,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class BookForm implements Serializable {
-
+public class QueryBook implements Serializable {
     /**
      * 书名
      */

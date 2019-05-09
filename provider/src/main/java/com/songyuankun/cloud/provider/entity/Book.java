@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * @author 书
@@ -17,13 +18,13 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @ToString
-public class Book {
+public class Book implements Serializable {
     /**
      * 主键
      */
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     /**
      * 书名
