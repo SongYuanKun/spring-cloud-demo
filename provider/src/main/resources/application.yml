@@ -18,6 +18,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
   output:
     ansi:
       enabled: detect
@@ -39,3 +40,4 @@ management:
     web:
       exposure:
         include: '*'
+
