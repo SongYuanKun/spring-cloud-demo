@@ -54,7 +54,7 @@ public class BookController {
         return bookServiceImpl.queryBookListV2(pageNumber, pageSize, queryBook);
     }
 
-    @ApiOperation(value = "分页查询book", notes = "分页查询book")
+    @ApiOperation(value = "主键查询", notes = "主键查询")
     @GetMapping(value = "query_by_id")
     @Cacheable(value = "BookById")
     public Book queryBookById(@RequestParam(value = "id") Integer id) {
