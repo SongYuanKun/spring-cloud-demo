@@ -1,6 +1,6 @@
 package com.songyuankun.cloud.provider.controller;
 
-import com.songyuankun.cloud.common.entity.Book;
+import com.songyuankun.cloud.provider.entity.Book;
 import com.songyuankun.cloud.common.form.BookForm;
 import com.songyuankun.cloud.common.query.QueryBook;
 import com.songyuankun.cloud.provider.service.BookServiceImpl;

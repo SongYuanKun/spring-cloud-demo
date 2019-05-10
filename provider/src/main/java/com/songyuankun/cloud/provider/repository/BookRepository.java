@@ -1,6 +1,6 @@
 package com.songyuankun.cloud.provider.repository;
 
-import com.songyuankun.cloud.common.entity.Book;
+import com.songyuankun.cloud.provider.entity.Book;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
