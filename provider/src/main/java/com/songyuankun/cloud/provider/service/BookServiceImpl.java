@@ -1,7 +1,7 @@
 package com.songyuankun.cloud.provider.service;
 
-import com.songyuankun.cloud.provider.entity.Book;
-import com.songyuankun.cloud.provider.query.QueryBook;
+import com.songyuankun.cloud.common.entity.Book;
+import com.songyuankun.cloud.common.query.QueryBook;
 import com.songyuankun.cloud.provider.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

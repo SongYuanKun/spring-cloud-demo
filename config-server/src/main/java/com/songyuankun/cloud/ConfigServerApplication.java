@@ -1,4 +1,4 @@
-package com.songyuankun.cloud.config.server;
+package com.songyuankun.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

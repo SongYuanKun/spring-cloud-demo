@@ -1,7 +1,7 @@
 package com.songyuankun.cloud.eureka.app.controller;
 
+import com.songyuankun.cloud.common.form.BookForm;
 import com.songyuankun.cloud.eureka.app.feign.BookRemoteInterface;
-import com.songyuankun.cloud.eureka.app.form.BookForm;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

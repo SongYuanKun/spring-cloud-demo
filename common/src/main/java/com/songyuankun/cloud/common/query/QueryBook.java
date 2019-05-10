@@ -1,4 +1,4 @@
-package com.songyuankun.cloud.provider.query;
+package com.songyuankun.cloud.common.query;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

@@ -1,9 +1,8 @@
-package com.songyuankun.cloud.provider.form;
+package com.songyuankun.cloud.common.form;
 
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

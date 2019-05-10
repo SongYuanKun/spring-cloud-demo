@@ -1,4 +1,4 @@
-package com.songyuankun.cloud.provider.entity;
+package com.songyuankun.cloud.common.entity;
 
 import lombok.Getter;
 import lombok.Setter;

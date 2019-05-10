@@ -1,6 +1,6 @@
 package com.songyuankun.cloud.eureka.app.feign;
 
-import com.songyuankun.cloud.eureka.app.form.BookForm;
+import com.songyuankun.cloud.common.form.BookForm;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
  */
 @Component
 @FeignClient(name = "EUREKA-PROVIDER")
-
 public interface BookRemoteInterface {
 
     /**
