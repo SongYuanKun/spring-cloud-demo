@@ -32,6 +32,7 @@ public class BookController {
     @PostMapping(value = "save", produces = "application/json")
     @CacheEvict(value = "queryBookList", allEntries = true)
     public Book saveBook(@RequestBody BookForm bookForm) {
+        log.info("saveBook,{}", bookForm);
         Book book = new Book();
         BeanUtils.copyProperties(bookForm, book);
         return bookServiceImpl.saveBook(book);
