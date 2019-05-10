@@ -25,7 +25,7 @@ public class BookServiceImpl {
         this.bookRepository = bookRepository;
     }
 
-    
+
     public Book saveBook(Book book) {
         return bookRepository.save(book);
     }
@@ -38,14 +38,14 @@ public class BookServiceImpl {
      * @param queryBook  请求参数
      * @return 分页book
      */
-    
+
     public Page<Book> queryBookListV2(int pageNumber, int pageSize, QueryBook queryBook) {
         Sort sort = new Sort(Sort.Direction.DESC, "name");
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
         return bookRepository.findAllByAuthorContainingAndNameContaining(queryBook.getAuthor(), queryBook.getName(), pageable);
     }
 
-    
+
     public Page<Book> queryBookList(int pageNumber, int pageSize, QueryBook queryBook) {
         Sort sort = new Sort(Sort.Direction.DESC, "name");
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
@@ -54,5 +54,9 @@ public class BookServiceImpl {
                         criteriaBuilder.like(root.get("author"), "%" + queryBook.getAuthor() + "%"),
                         criteriaBuilder.like(root.get("name"), "%" + queryBook.getName() + "%")
                 ), pageable);
+    }
+
+    public Book queryById(int id) {
+        return bookRepository.getOne(id);
     }
 }

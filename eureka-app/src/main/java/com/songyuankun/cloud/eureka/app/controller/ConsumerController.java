@@ -1,5 +1,6 @@
 package com.songyuankun.cloud.eureka.app.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.songyuankun.cloud.common.form.BookForm;
 import com.songyuankun.cloud.eureka.app.feign.BookRemoteInterface;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,7 +28,9 @@ public class ConsumerController {
     }
 
     @RequestMapping(value = "/saveBook", method = RequestMethod.POST)
+    @HystrixCommand(fallbackMethod = "error")
     public String helloController(@RequestBody BookForm bookForm) {
         return bookRemoteInterface.saveBook(bookForm);
     }
+
 }
