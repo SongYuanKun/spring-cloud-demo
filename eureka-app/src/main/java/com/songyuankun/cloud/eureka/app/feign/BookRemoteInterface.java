@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 /**
@@ -31,5 +32,5 @@ public interface BookRemoteInterface {
      * @return book
      */
     @GetMapping(value = "api/book/query_by_id")
-    String queryById(int id);
+    String queryById(@RequestParam(value = "id") int id);
 }

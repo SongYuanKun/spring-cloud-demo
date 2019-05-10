@@ -3,6 +3,7 @@ package com.songyuankun.cloud.provider.entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import java.io.Serializable;
 /**
  * @author 书
  */
+@Proxy(lazy = false)
 @Entity
 @Table(name = "book")
 @Getter

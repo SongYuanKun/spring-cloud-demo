@@ -1,5 +1,6 @@
 package com.songyuankun.cloud.provider.controller;
 
+import com.songyuankun.cloud.common.response.BookVO;
 import com.songyuankun.cloud.provider.entity.Book;
 import com.songyuankun.cloud.common.form.BookForm;
 import com.songyuankun.cloud.common.query.QueryBook;
@@ -56,9 +57,11 @@ public class BookController {
 
     @ApiOperation(value = "主键查询", notes = "主键查询")
     @GetMapping(value = "query_by_id")
-    @Cacheable(value = "BookById")
-    public Book queryBookById(@RequestParam(value = "id") Integer id) {
-        return bookServiceImpl.queryById(id);
+    public BookVO queryBookById(@RequestParam(value = "id") Integer id) {
+        Book book = bookServiceImpl.queryById(id);
+        BookVO bookVO = new BookVO();
+        BeanUtils.copyProperties(book, bookVO);
+        return bookVO;
     }
 
 }
