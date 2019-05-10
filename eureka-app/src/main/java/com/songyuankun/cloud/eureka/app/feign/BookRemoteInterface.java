@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Component
 @FeignClient(name = "EUREKA-PROVIDER")
-public interface BookRemoteInterface {
+public interface BookRemoteInterface  {
 
     /**
      * 保存book
