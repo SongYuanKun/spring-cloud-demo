@@ -1,5 +1,8 @@
 package com.songyuankun.cloud.eureka.app.controller;
 
+import com.songyuankun.cloud.eureka.app.feign.BookRemoteInterface;
+import com.songyuankun.cloud.eureka.app.form.BookForm;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,13 +14,20 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class ConsumerController {
     private final RestTemplate restTemplate;
+    private final BookRemoteInterface bookRemoteInterface;
 
-    public ConsumerController(RestTemplate restTemplate) {
+    public ConsumerController(RestTemplate restTemplate, BookRemoteInterface bookRemoteInterface) {
         this.restTemplate = restTemplate;
+        this.bookRemoteInterface = bookRemoteInterface;
     }
 
     @RequestMapping(value = "/ribbon-consumer", method = RequestMethod.GET)
-    public String helloController() {
+    public String ribbonConsumer() {
         return restTemplate.getForEntity("http://EUREKA-PROVIDER/", String.class).getBody();
+    }
+
+    @RequestMapping(value = "/saveBook", method = RequestMethod.POST)
+    public String helloController(@RequestBody BookForm bookForm) {
+        return bookRemoteInterface.saveBook(bookForm);
     }
 }
