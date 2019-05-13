@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * eureka客户端
  *
- * @author Administrator
+ * @author songyuankun
  */
 @SpringCloudApplication
 @EnableFeignClients

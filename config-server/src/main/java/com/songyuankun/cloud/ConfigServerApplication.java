@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * cloud-config的服务端
  *
- * @author Administrator
+ * @author songyuankun
  */
 @SpringBootApplication
 @EnableConfigServer
