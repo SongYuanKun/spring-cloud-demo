@@ -19,28 +19,19 @@ public class ConsumerController {
         this.bookRemoteInterface = bookRemoteInterface;
     }
 
-    @RequestMapping(value = "/ribbon-consumer", method = RequestMethod.GET)
+    @GetMapping(value = "/ribbon-consumer")
     public String ribbonConsumer() {
         return restTemplate.getForEntity("http://EUREKA-PROVIDER/", String.class).getBody();
     }
 
-    @RequestMapping(value = "/saveBook", method = RequestMethod.POST)
-    @HystrixCommand(fallbackMethod = "error")
+    @PostMapping(value = "/saveBook")
     public String saveBook(@RequestBody BookForm bookForm) {
         return bookRemoteInterface.saveBook(bookForm);
     }
 
     @GetMapping(value = "/queryBookById")
-    @HystrixCommand(fallbackMethod = "error")
     public String queryBookById(@RequestParam Integer id) {
         return bookRemoteInterface.queryById(id);
     }
 
-    public String error() {
-        return "error";
-    }
-
-    public String error(Integer id) {
-        return "error";
-    }
 }

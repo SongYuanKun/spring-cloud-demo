@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author songyuankun
  */
 @Component
-@FeignClient(name = "EUREKA-PROVIDER")
-public interface BookRemoteInterface  {
+@FeignClient(name = "EUREKA-PROVIDER", fallback = BookRemoteFallback.class)
+public interface BookRemoteInterface {
 
     /**
      * 保存book
