@@ -20,7 +20,7 @@ spring:
     redis:
       database: 0
       host: 60.205.221.172
-      port: 7000
+      port: 6379
       password: 123456
     mode: HTML5
 my:
