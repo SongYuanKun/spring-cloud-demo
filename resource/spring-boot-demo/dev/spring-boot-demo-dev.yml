@@ -5,7 +5,7 @@ spring:
     mongodb:
       uri: mongodb+srv://songyuankun:songyuankun@cluster0-xrqrk.mongodb.net/demo?retryWrites=true
   datasource:
-    url: jdbc:mysql://60.205.221.172/mysqltest?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://60.205.221.172/spring_cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: Kun3.1415926
     driver-class-name: com.mysql.cj.jdbc.Driver
