@@ -33,7 +33,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka1.songyuankun.top/eureka/,http://eureka2.songyuankun.top/eureka/
+      defaultZone: http://eureka1.songyuankun.top/eureka/
   instance:
     hostname: songyuankun.top
 management:

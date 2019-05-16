@@ -4,7 +4,7 @@ server:
     context-path: /eureka-server
 eureka:
   instance:
-    hostname: 127.0.0.1
+    hostname: songyuankun.top
   client:
     registerWithEureka: false
     fetchRegistry: false
