@@ -24,8 +24,3 @@ eureka:
       defaultZone: http://eureka1.songyuankun.top/eureka/
   instance:
     hostname: config-server.songyuankun.top
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'

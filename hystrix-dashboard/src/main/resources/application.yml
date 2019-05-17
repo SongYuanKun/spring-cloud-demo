@@ -11,12 +11,6 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka1.songyuankun.top/eureka/,http://eureka2.songyuankun.top/eureka/
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-
 turbine:
   aggregator:
     clusterConfig: default
