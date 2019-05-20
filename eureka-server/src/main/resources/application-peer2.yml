@@ -4,10 +4,10 @@ server:
     context-path: /
 eureka:
   instance:
-    hostname: songyuankun.com
+    hostname: eureka2.songyuankun.top
   client:
     serviceUrl:
-      defaultZone: http://songyuankun.com:8761/eureka/
+      defaultZone: http://eureka1.songyuankun.top/eureka/
 
 spring:
   application:
