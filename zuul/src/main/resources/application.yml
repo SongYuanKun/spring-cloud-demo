@@ -1,13 +1,16 @@
 server:
-  port: 5000
+  port: 8000
+  servlet:
+    context-path: /
 spring:
   application:
     name: api-geteway
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka-server/eureka/
+      defaultZone: http://songyuankun.com:8761/eureka/
+  instance:
+    hostname: songyuankun.com
 zuul:
   routes:
-    spring-boot-demo:
-      path: /api/**
+    eureka-provider: book/**

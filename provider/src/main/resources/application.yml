@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
   servlet:
     context-path: /
 spring:
@@ -33,6 +33,6 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka1.songyuankun.top/eureka/
+      defaultZone: http://songyuankun.com:8761/eureka/
   instance:
-    hostname: songyuankun.top
+    hostname: songyuankun.com

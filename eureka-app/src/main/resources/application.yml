@@ -8,7 +8,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka1.songyuankun.top/eureka/,http://eureka2.songyuankun.top/eureka/
+      defaultZone: http://songyuankun.com:8761/eureka/,http://songyuankun.com:8762/eureka/
 
 feign:
   hystrix:

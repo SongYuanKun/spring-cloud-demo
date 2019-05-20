@@ -37,7 +37,7 @@ public class ConfigServerApplication {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(HttpHeaders.CONTENT_TYPE, "application/json");
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(null, httpHeaders);
-        restTemplate.postForEntity("http://localhost:8001/actuator/bus-refresh", request, String.class);
+        restTemplate.postForEntity("http://songyuankun.com:8001/actuator/bus-refresh", request, String.class);
     }
 
 }
