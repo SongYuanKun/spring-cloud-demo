@@ -6,7 +6,7 @@ package com.songyuankun.cloud.common;
 public class ResponseUtils {
 
     public static <T> Response<T> success(T object) {
-        return new Response<>(0, "", object);
+        return new Response<T>(ResultEnums.SUCCESS.getCode(), ResultEnums.SUCCESS.getMessage(), object);
     }
 
 }
