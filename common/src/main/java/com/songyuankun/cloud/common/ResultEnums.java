@@ -2,13 +2,11 @@ package com.songyuankun.cloud.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 /**
  * @author songyuankun
  */
-@Setter
 @Getter
 @ToString
 @AllArgsConstructor
