@@ -1,8 +1,17 @@
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
       routes:
-        - id: cookie_route
-          uri: https://example.org
+        - id: eureka-provider
+          uri: lb://EUREKA-PROVIDER
           predicates:
-            - Cookie=chocolate, ch.p
+            - Path=/provider/**
+          filters:
+            - StripPrefix=1
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://songyuankun.com:8761/eureka/
