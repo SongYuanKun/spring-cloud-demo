@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: cookie_route
+          uri: https://example.org
+          predicates:
+            - Cookie=chocolate, ch.p
