@@ -1,9 +1,7 @@
 package com.songyuankun.cloud.common;
 
 import io.swagger.annotations.ApiModel;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * 响应对象
@@ -14,6 +12,8 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Response<T> {
     private Integer code;
     private String message;
