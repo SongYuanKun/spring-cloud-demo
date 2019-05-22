@@ -1,0 +1,69 @@
+package com.songyuankun.cloud.controller;
+
+import com.songyuankun.cloud.common.form.MediaForm;
+import com.songyuankun.cloud.common.query.QueryMedia;
+import com.songyuankun.cloud.common.response.MediaVO;
+import com.songyuankun.cloud.entity.Media;
+import com.songyuankun.cloud.service.MediaServiceImpl;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @author songyuankun
+ */
+
+@RestController
+@RequestMapping("api/media")
+@Api
+@Slf4j
+public class MediaController {
+    private final MediaServiceImpl mediaService;
+
+    @Autowired
+    public MediaController(MediaServiceImpl mediaService) {
+        this.mediaService = mediaService;
+    }
+
+    @ApiOperation(value = "保存media", notes = "保存media")
+    @PostMapping(value = "save", produces = "application/json")
+    @CacheEvict(value = "queryMediaList", allEntries = true)
+    public Media saveMedia(@RequestBody MediaForm mediaForm) {
+        log.info("saveMedia,{}", mediaForm);
+        Media media = new Media();
+        BeanUtils.copyProperties(mediaForm, media);
+        return mediaService.saveMedia(media);
+    }
+
+    @ApiOperation(value = "分页查询media", notes = "分页查询media")
+    @PostMapping(value = "query_media", produces = "application/json")
+    @Cacheable(value = "queryMediaList", key = "'author'+#queryMedia.userId+'name'+#queryMedia.name+'pageNumber_'+#pageNumber+'pageSize_'+#pageSize")
+    public Page<Media> queryMediaList(@RequestParam(value = "page", defaultValue = "0") Integer pageNumber,
+                                      @RequestParam(value = "size", defaultValue = "10") Integer pageSize, @RequestBody QueryMedia queryMedia) {
+        return mediaService.queryMediaList(pageNumber, pageSize, queryMedia);
+    }
+
+    @ApiOperation(value = "分页查询media", notes = "分页查询media")
+    @PostMapping(value = "query_media_v2", produces = "application/json")
+    @Cacheable(value = "queryMediaList", key = "'author'+#queryMedia.userId+'name'+#queryMedia.name+'pageNumber_'+#pageNumber+'pageSize_'+#pageSize")
+    public Page<Media> queryMediaListV2(@RequestParam(value = "page", defaultValue = "0") Integer pageNumber,
+                                        @RequestParam(value = "size", defaultValue = "10") Integer pageSize, @RequestBody QueryMedia queryMedia) {
+        return mediaService.queryMediaListV2(pageNumber, pageSize, queryMedia);
+    }
+
+    @ApiOperation(value = "主键查询", notes = "主键查询")
+    @GetMapping(value = "query_by_id")
+    public MediaVO queryMediaById(@RequestParam(value = "id") Integer id) {
+        Media media = mediaService.queryById(id);
+        MediaVO mediaVO = new MediaVO();
+        BeanUtils.copyProperties(media, mediaVO);
+        return mediaVO;
+    }
+
+}
