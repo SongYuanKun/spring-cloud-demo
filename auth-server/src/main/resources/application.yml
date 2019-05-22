@@ -1,1 +1,18 @@
-
+spring:
+  application:
+    name: auth-server
+  redis:
+    database: 0
+    host: 60.205.221.172
+    port: 6379
+    password: 123456
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://songyuankun.com:8761/eureka/
+  instance:
+    hostname: songyuankun.com
+server:
+  port: 8084
+  servlet:
+    context-path: /

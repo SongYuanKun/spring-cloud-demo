@@ -1,4 +1,4 @@
-package com.songyuankun.cloud.gateway;
+package com.songyuankun.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

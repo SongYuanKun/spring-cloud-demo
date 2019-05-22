@@ -1,4 +1,4 @@
-package com.songyuankun.cloud.gateway;
+package com.songyuankun.cloud;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
