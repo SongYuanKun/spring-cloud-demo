@@ -1,0 +1,14 @@
+server:
+  port: 8006
+
+spring:
+  application:
+    name: media-client
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://songyuankun.com:8761/eureka/
+feign:
+  hystrix:
+    enabled: true

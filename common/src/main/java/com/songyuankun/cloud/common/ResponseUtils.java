@@ -9,4 +9,7 @@ public class ResponseUtils {
         return new Response<>(ResultEnums.SUCCESS.getCode(), ResultEnums.SUCCESS.getMessage(), object);
     }
 
+    public static <T> Response<T>  error(T object) {
+        return new Response<>(ResultEnums.ERROR.getCode(), ResultEnums.ERROR.getMessage(), object);
+    }
 }

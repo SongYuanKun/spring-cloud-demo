@@ -1,6 +1,5 @@
 package com.songyuankun.cloud.common;
 
-import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 /**
@@ -8,7 +7,6 @@ import lombok.*;
  *
  * @author songyuankun
  */
-@ApiModel
 @Setter
 @Getter
 @ToString
