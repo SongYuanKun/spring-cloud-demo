@@ -1,5 +1,6 @@
 package com.songyuankun.cloud.upload.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;
 import com.qiniu.common.Zone;
@@ -86,7 +87,7 @@ public class UploadController {
         try {
             //解析上传成功的结果
             DefaultPutRet putRet = new Gson().fromJson(response != null ? response.bodyString() : "{}", DefaultPutRet.class);
-            return ResponseUtils.success(putRet.key);
+            return ResponseUtils.success(JSONObject.toJSONString(putRet));
         } catch (QiniuException e) {
             e.printStackTrace();
         }
