@@ -21,6 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author songyuankun
@@ -36,6 +38,8 @@ public class UploadController {
     private String secretKey;
     @Value("${qiniu.bucket}")
     private String bucket;
+    @Value("${qiniu.cdn_host}")
+    private String cdnHost;
 
 
     @GetMapping("test")
@@ -87,7 +91,10 @@ public class UploadController {
         try {
             //解析上传成功的结果
             DefaultPutRet putRet = new Gson().fromJson(response != null ? response.bodyString() : "{}", DefaultPutRet.class);
-            return ResponseUtils.success(JSONObject.toJSONString(putRet));
+            Map<String, Object> result = new HashMap<>(16);
+            result.put("url", cdnHost + putRet.key);
+            result.put("putRet", putRet);
+            return ResponseUtils.success(JSONObject.toJSONString(result));
         } catch (QiniuException e) {
             e.printStackTrace();
         }
