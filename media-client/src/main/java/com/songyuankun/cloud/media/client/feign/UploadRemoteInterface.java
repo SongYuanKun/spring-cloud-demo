@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Map;
+
 /**
  * @author songyuankun
  */
@@ -27,7 +29,7 @@ public interface UploadRemoteInterface {
      * @return key
      */
     @RequestMapping(method = RequestMethod.POST, value = "upload/file", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    Response<String> uploadFile(@RequestPart("file") MultipartFile file);
+    Response<Map<String,Object>> uploadFile(@RequestPart("file") MultipartFile file);
 
     @Configuration
     class MultipartSupportConfig {

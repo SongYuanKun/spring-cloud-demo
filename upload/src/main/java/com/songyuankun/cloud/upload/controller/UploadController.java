@@ -1,6 +1,5 @@
 package com.songyuankun.cloud.upload.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;
 import com.qiniu.common.Zone;
@@ -74,7 +73,7 @@ public class UploadController {
 
     @PostMapping(value = "file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ApiOperation(value = "上传文件", notes = "上传文件")
-    public com.songyuankun.cloud.common.Response<String> upload(@ApiParam(name = "文件") @RequestParam("file") MultipartFile file) {
+    public com.songyuankun.cloud.common.Response<Map<String, Object>> upload(@ApiParam(name = "文件") @RequestParam("file") MultipartFile file) {
         Configuration cfg = new Configuration(Zone.zone0());
 
         UploadManager uploadManager = new UploadManager(cfg);
@@ -94,7 +93,7 @@ public class UploadController {
             Map<String, Object> result = new HashMap<>(16);
             result.put("url", cdnHost + putRet.key);
             result.put("putRet", putRet);
-            return ResponseUtils.success(JSONObject.toJSONString(result));
+            return ResponseUtils.success(result);
         } catch (QiniuException e) {
             e.printStackTrace();
         }
