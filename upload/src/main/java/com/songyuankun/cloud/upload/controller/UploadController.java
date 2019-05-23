@@ -91,7 +91,7 @@ public class UploadController {
             //解析上传成功的结果
             DefaultPutRet putRet = new Gson().fromJson(response != null ? response.bodyString() : "{}", DefaultPutRet.class);
             Map<String, Object> result = new HashMap<>(16);
-            result.put("url", cdnHost + putRet.key);
+            result.put("url", cdnHost + "/" + putRet.key);
             result.put("putRet", putRet);
             return ResponseUtils.success(result);
         } catch (QiniuException e) {
