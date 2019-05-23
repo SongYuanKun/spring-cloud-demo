@@ -5,8 +5,6 @@ import com.songyuankun.cloud.common.query.QueryMedia;
 import com.songyuankun.cloud.common.response.MediaVO;
 import com.songyuankun.cloud.entity.Media;
 import com.songyuankun.cloud.service.MediaServiceImpl;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/media")
-@Api
 @Slf4j
 public class MediaController {
     private final MediaServiceImpl mediaService;
@@ -31,7 +28,6 @@ public class MediaController {
         this.mediaService = mediaService;
     }
 
-    @ApiOperation(value = "保存media", notes = "保存media")
     @PostMapping(value = "save", produces = "application/json")
     @CacheEvict(value = "queryMediaList", allEntries = true)
     public Media saveMedia(@RequestBody MediaForm mediaForm) {
@@ -41,7 +37,6 @@ public class MediaController {
         return mediaService.saveMedia(media);
     }
 
-    @ApiOperation(value = "分页查询media", notes = "分页查询media")
     @PostMapping(value = "query_media", produces = "application/json")
     @Cacheable(value = "queryMediaList", key = "'author'+#queryMedia.userId+'name'+#queryMedia.name+'pageNumber_'+#pageNumber+'pageSize_'+#pageSize")
     public Page<Media> queryMediaList(@RequestParam(value = "page", defaultValue = "0") Integer pageNumber,
@@ -49,7 +44,6 @@ public class MediaController {
         return mediaService.queryMediaList(pageNumber, pageSize, queryMedia);
     }
 
-    @ApiOperation(value = "分页查询media", notes = "分页查询media")
     @PostMapping(value = "query_media_v2", produces = "application/json")
     @Cacheable(value = "queryMediaList", key = "'author'+#queryMedia.userId+'name'+#queryMedia.name+'pageNumber_'+#pageNumber+'pageSize_'+#pageSize")
     public Page<Media> queryMediaListV2(@RequestParam(value = "page", defaultValue = "0") Integer pageNumber,
@@ -57,7 +51,6 @@ public class MediaController {
         return mediaService.queryMediaListV2(pageNumber, pageSize, queryMedia);
     }
 
-    @ApiOperation(value = "主键查询", notes = "主键查询")
     @GetMapping(value = "query_by_id")
     public MediaVO queryMediaById(@RequestParam(value = "id") Integer id) {
         Media media = mediaService.queryById(id);
