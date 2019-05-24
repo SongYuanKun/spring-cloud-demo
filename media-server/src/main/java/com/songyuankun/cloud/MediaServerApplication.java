@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author songyuankun
  */
 @SpringBootApplication
-public class MediaApplication {
+public class MediaServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MediaApplication.class, args);
+        SpringApplication.run(MediaServerApplication.class, args);
     }
 
 }

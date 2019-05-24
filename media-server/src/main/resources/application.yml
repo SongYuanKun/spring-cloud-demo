@@ -4,7 +4,7 @@ server:
     context-path: /
 spring:
   application:
-    name: media
+    name: media-server
   datasource:
     url: jdbc:mysql://60.205.221.172/spring_cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root

@@ -1,5 +1,7 @@
 package com.songyuankun.cloud.controller;
 
+import com.songyuankun.cloud.common.Response;
+import com.songyuankun.cloud.common.ResponseUtils;
 import com.songyuankun.cloud.common.form.MediaForm;
 import com.songyuankun.cloud.common.query.QueryMedia;
 import com.songyuankun.cloud.common.response.MediaVO;
@@ -30,11 +32,14 @@ public class MediaController {
 
     @PostMapping(value = "save", produces = "application/json")
     @CacheEvict(value = "queryMediaList", allEntries = true)
-    public Media saveMedia(@RequestBody MediaForm mediaForm) {
+    public Response<MediaVO> saveMedia(@RequestBody MediaForm mediaForm) {
         log.info("saveMedia,{}", mediaForm);
         Media media = new Media();
         BeanUtils.copyProperties(mediaForm, media);
-        return mediaService.saveMedia(media);
+        Media saveMedia = mediaService.saveMedia(media);
+        MediaVO mediaVO = new MediaVO();
+        BeanUtils.copyProperties(saveMedia, mediaVO);
+        return ResponseUtils.success(mediaVO);
     }
 
     @PostMapping(value = "query_media", produces = "application/json")

@@ -13,11 +13,11 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * @author 书
+ * @author 媒体
  */
 @Proxy(lazy = false)
 @Entity
-@Table(name = "book")
+@Table(name = "media")
 @Getter
 @Setter
 @ToString

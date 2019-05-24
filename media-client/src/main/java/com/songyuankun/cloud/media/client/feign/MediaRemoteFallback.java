@@ -1,19 +1,23 @@
 package com.songyuankun.cloud.media.client.feign;
 
-import com.alibaba.fastjson.JSONObject;
 import com.songyuankun.cloud.common.Response;
 import com.songyuankun.cloud.common.ResponseUtils;
+import com.songyuankun.cloud.common.form.MediaForm;
+import com.songyuankun.cloud.common.response.MediaVO;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.print.attribute.standard.Media;
+import java.util.Map;
 
 /**
  * @author songyuankun
  */
 @Component
-public class UploadRemoteFallback implements UploadRemoteInterface {
+public class MediaRemoteFallback implements MediaRemoteInterface {
 
     @Override
-    public Response<JSONObject> uploadFile(MultipartFile file) {
+    public Response<MediaVO> saveMedia(MediaForm mediaForm) {
         return ResponseUtils.error(null);
     }
 }

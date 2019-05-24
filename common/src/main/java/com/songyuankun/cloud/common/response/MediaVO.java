@@ -14,6 +14,11 @@ import java.io.Serializable;
 @ToString
 public class MediaVO implements Serializable {
     /**
+     * 主键
+     */
+    private Integer id;
+
+    /**
      * 媒体名
      */
     private String name;
