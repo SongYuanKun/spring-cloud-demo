@@ -8,10 +8,11 @@ import com.songyuankun.cloud.media.client.feign.MediaRemoteInterface;
 import com.songyuankun.cloud.media.client.feign.UploadRemoteInterface;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.validation.Valid;
 
 /**
  * @author songyuankun
@@ -30,10 +31,13 @@ public class MediaUploadController {
     }
 
     @PostMapping("file")
-    public Response<MediaVO> uploadFile(@RequestParam("file") MultipartFile file, @ModelAttribute @Valid MediaForm mediaForm) {
+    public Response<MediaVO> uploadFile(@RequestParam("file") MultipartFile file, @RequestParam String name, @RequestParam Integer userId) {
         Response<JSONObject> jsonObjectResponse = uploadRemoteInterface.uploadFile(file);
         JSONObject date = jsonObjectResponse.getDate();
         String url = date.getString("url");
+        MediaForm mediaForm = new MediaForm();
+        mediaForm.setName(name);
+        mediaForm.setUserId(userId);
         mediaForm.setUrl(url);
         return mediaRemoteInterface.saveMedia(mediaForm);
     }

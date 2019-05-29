@@ -9,7 +9,7 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/, http://eureka2.songyuankun.top/eureka/,http://eureka1.songyuankun.top/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/,http://eureka1.songyuankun.top/eureka/
 
 spring:
   application:
