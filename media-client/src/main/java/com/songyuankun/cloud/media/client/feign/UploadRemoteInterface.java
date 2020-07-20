@@ -7,8 +7,7 @@ import com.songyuankun.cloud.media.client.config.MultipartSupportConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,6 +23,6 @@ public interface UploadRemoteInterface {
      * @param file 文件
      * @return key
      */
-    @RequestMapping(method = RequestMethod.POST, value = "upload/file", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping( value = "upload/file", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     Response<JSONObject> uploadFile(@RequestPart("file") MultipartFile file);
 }
